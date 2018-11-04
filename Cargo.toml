@@ -1,0 +1,7 @@
+[package]
+name = "AptReader"
+version = "0.1.0"
+authors = ["Anthony <anthonygst26@gmail.com>"]
+
+[dependencies]
+regex = "1"
