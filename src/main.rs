@@ -6,11 +6,21 @@ extern crate regex;
 use regex::Regex;
 use regex::{ Captures, Error };
 
+pub struct Package {
+    name: String,
+    version: String
+}
 
 pub struct Log {
     date: String,
     time: String,
-    command: String
+    command: String,
+    requester: String,
+    automatic_action: bool,
+    installed: Vec<Package>,
+    removed: Vec<Package>,
+    purged: Vec<Package>,
+    upgraded: Vec<Package>
 }
 
 
@@ -64,7 +74,13 @@ impl LogReader {
             }
 
             logs.push(Log {
-                date, time, command
+                date, time, command,
+                requester: String::new(),
+                automatic_action: false,
+                installed: Vec::new(),
+                removed: Vec::new(),
+                purged: Vec::new(),
+                upgraded: Vec::new()
             });
         }
 
